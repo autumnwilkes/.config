@@ -1,8 +1,10 @@
+# export PATH="/home/ubuntu/.bun/bin:/opt/nvim-linux-x86_64/bin:$PATH"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # File System Aliases
-alias ll="eza -a -l"
+alias ll="eza -al"
+alias ls="ls -la"
 alias th="z"
 alias nd="mkdir"
 
@@ -13,6 +15,8 @@ alias pull="git pull"
 alias fetch="git fetch"
 alias checkout="git checkout"
 alias rust="-R rust-lang/rust"
+alias ubuntu="cd /home/ubuntu"
+alias scout="cd /home/ubuntu/chaotic-chickens/" # Rember to update!
 
 # Neovim Aliases
 alias e="nvim"

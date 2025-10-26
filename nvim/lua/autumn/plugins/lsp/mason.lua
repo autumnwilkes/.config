@@ -10,10 +10,12 @@ return {
 
 		-- import mason-lspconfig
 		local mason_lspconfig = require("mason-lspconfig")
+
 		local mason_tool_installer = require("mason-tool-installer")
 
 		-- enable mason and configure icons
 		mason.setup({
+			install_root_dir = "/home/ubuntu/data/nvim/mason",
 			ui = {
 				icons = {
 					package_installed = "✓",
@@ -31,12 +33,7 @@ return {
 				"cssls",
 				"tailwindcss",
 				"svelte",
-				"lua_ls",
-				"clangd",
 				"emmet_language_server",
-				"basedpyright",
-				"rust_analyzer",
-				"jdtls",
 			},
 			-- auto-install configured servers (with lspconfig)
 			automatic_installation = true, -- not the same as ensure_installed
@@ -46,9 +43,6 @@ return {
 			ensure_installed = {
 				"prettier", -- prettier formatter
 				"stylua", -- lua formatter
-				"isort", -- python formatter
-				"black", -- python formatter
-				"pylint", -- python linter
 				"eslint_d", -- js linter
 			},
 		})

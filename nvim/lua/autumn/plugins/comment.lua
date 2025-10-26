@@ -3,6 +3,6 @@ return -- add this to your lua/plugins.lua, lua/plugins/init.lua,  or the file y
 	"numToStr/Comment.nvim",
 	opts = {
 		-- add any options here
-        padding = true
+		padding = true,
 	},
 }

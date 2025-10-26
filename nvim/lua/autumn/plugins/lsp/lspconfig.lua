@@ -8,7 +8,8 @@ return {
 	},
 
 	config = function()
-		local lspconfig = require("lspconfig")
+		-- local lspconfig = require("lspconfig") -- use vim.lsp.config?
+		local lspconfig = vim.lsp
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 		local keymap = vim.keymap
@@ -64,44 +65,57 @@ return {
 				numhl = "DiagnosticSign" .. diag,
 			})
 		end
-		lspconfig.rust_analyzer.setup({
+		lspconfig.config("rust_analyzer", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
-		lspconfig.clangd.setup({
+		lspconfig.enable("rust_analyzer")
+
+		lspconfig.config("clangd", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
-		lspconfig.gopls.setup({
+		lspconfig.enable("clangd")
+
+		lspconfig.config("gopls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
-		lspconfig.html.setup({
+		lspconfig.enable("gopls")
+
+		lspconfig.config("html", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
-		lspconfig.ts_ls.setup({
+		lspconfig.enable("html")
+
+		lspconfig.config("ts_ls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
-		lspconfig.cssls.setup({
+		lspconfig.enable("ts_ls")
+
+		lspconfig.config("cssls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
-		lspconfig.tailwindcss.setup({
+		lspconfig.enable("cssls")
+
+		lspconfig.config("tailwindcss", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
-		lspconfig.svelte.setup({
+		lspconfig.enable("tailwindcss")
+
+		lspconfig.config("svelte", {
 			capabilities = capabilities,
-			cmd = { "svelteserver", "--stdio" },
 			on_attach = function(client, bufnr)
 				on_attach(client, bufnr)
 
@@ -115,31 +129,25 @@ return {
 				})
 			end,
 		})
-		--[[	
-		lspconfig.emmet_language_server.setup({
+
+		lspconfig.enable("svelte")
+
+		lspconfig.config("emmet_language_server", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
 		})
 
-        --]]
-		lspconfig.basedpyright.setup({
+		lspconfig.enable("emmet_language_server")
+
+		lspconfig.config("basedpyright", {
 			capabilities = capabilities,
 			on_attach = on_attach,
-		})
-		lspconfig.r_language_server.setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			settings = {
-				r = {
-					lsp = {
-						diagnostics = true, -- Enable linting with lintr
-					},
-				},
-			},
 		})
 
-		lspconfig.lua_ls.setup({
+		lspconfig.enable("basedpyright")
+
+		lspconfig.config("lua_ls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			settings = {
@@ -158,5 +166,7 @@ return {
 				},
 			},
 		})
+
+		lspconfig.enable("lua_ls")
 	end,
 }
