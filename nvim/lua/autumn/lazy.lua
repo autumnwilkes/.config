@@ -22,7 +22,7 @@ vim.opt.runtimepath:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-require("lazy").setup({ { import = "azalea.plugins" }, { import = "azalea.plugins.lsp" } })
+require("lazy").setup({ { import = "autumn.plugins" }, { import = "autumn.plugins.lsp" } })
 
 vim.cmd("colorscheme tokyonight-storm")
 

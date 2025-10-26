@@ -12,6 +12,7 @@ alias push="git push"
 alias pull="git pull"
 alias fetch="git fetch"
 alias checkout="git checkout"
+alias rust="-R rust-lang/rust"
 
 # Neovim Aliases
 alias e="nvim"
@@ -19,5 +20,9 @@ alias e="nvim"
 GPG_TTY=$(tty)
 export GPG_TTY
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+
+# bun completions
+[ -s "/Users/autumnwilkes/.bun/_bun" ] && source "/Users/autumnwilkes/.bun/_bun"

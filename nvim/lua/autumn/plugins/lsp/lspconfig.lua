@@ -84,7 +84,7 @@ return {
 			on_attach = on_attach,
 		})
 
-		lspconfig.tsserver.setup({
+		lspconfig.ts_ls.setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
@@ -101,6 +101,7 @@ return {
 
 		lspconfig.svelte.setup({
 			capabilities = capabilities,
+			cmd = { "svelteserver", "--stdio" },
 			on_attach = function(client, bufnr)
 				on_attach(client, bufnr)
 
@@ -114,16 +115,28 @@ return {
 				})
 			end,
 		})
-
+		--[[	
 		lspconfig.emmet_language_server.setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 			filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
 		})
 
+        --]]
 		lspconfig.basedpyright.setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+		})
+		lspconfig.r_language_server.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			settings = {
+				r = {
+					lsp = {
+						diagnostics = true, -- Enable linting with lintr
+					},
+				},
+			},
 		})
 
 		lspconfig.lua_ls.setup({
