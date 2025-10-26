@@ -15,7 +15,6 @@ return {
 
 		-- enable mason and configure icons
 		mason.setup({
-			install_root_dir = "/home/ubuntu/data/nvim/mason",
 			ui = {
 				icons = {
 					package_installed = "✓",
@@ -34,6 +33,11 @@ return {
 				"tailwindcss",
 				"svelte",
 				"emmet_language_server",
+				"lua_ls",
+				"clangd",
+				"basedpyright",
+				"rust_analyzer",
+				"jdtls",
 			},
 			-- auto-install configured servers (with lspconfig)
 			automatic_installation = true, -- not the same as ensure_installed
@@ -44,6 +48,9 @@ return {
 				"prettier", -- prettier formatter
 				"stylua", -- lua formatter
 				"eslint_d", -- js linter
+				"isort", -- python formatter
+				"black", -- python formatter
+				"pylint", -- python linter
 			},
 		})
 	end,

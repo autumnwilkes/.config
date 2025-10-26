@@ -23,7 +23,6 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 require("lazy").setup({
-	root = "/home/ubuntu/data/nvim/lazy/",
 	{ import = "autumn.plugins" },
 	{ import = "autumn.plugins.lsp" },
 })
